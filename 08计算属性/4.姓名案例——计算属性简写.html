@@ -35,24 +35,30 @@
 
         },
         computed:{
-            fullName:{
-                //get有什么作用？ 当有人读取fullname时候，get就会被调用，且返回fullname的值
-                //get什么时候调用，1初次读取fullname时， 2.所依赖的数据发生改变。
-                get(){
-                    console.log('get调用')
-                    return this.firstName + '-' +this.lastName;
 
-                },
-                // 当fullname被修改的时候调用get
-                set(value){
-                    //通过分隔符‘-’进行分割
-                    const arr = value.split('-')
-                    this.firstName = arr[0]
-                    this.lastName = arr[1]
-                }
+            // 简写。
+            // fullName:{
+            //     //get有什么作用？ 当有人读取fullname时候，get就会被调用，且返回fullname的值
+            //     //get什么时候调用，1初次读取fullname时， 2.所依赖的数据发生改变。
+            //     get(){
+            //         console.log('get调用')
+            //         return this.firstName + '-' +this.lastName;
 
-            }
+            //     },
+            //     // 当fullname被修改的时候调用get
+            //     set(value){
+            //     const arr = value.split('-')
+            //     this.firstName = arr[0]
+            //     this.lastName = arr[1]
+            //     }
 
+            // }
+
+            //简写：只有读取计算属性的时候才使用简写。
+            fullName:function(){
+                console.log('get被调用')
+                return this,firstName + "-" + lastName;
+            }    
         }
 
     })
