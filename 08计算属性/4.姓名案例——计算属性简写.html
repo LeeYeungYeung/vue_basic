@@ -57,7 +57,8 @@
             //简写：只有读取计算属性的时候才使用简写。
             fullName:function(){
                 console.log('get被调用')
-                return this,firstName + "-" + lastName;
+                return this.firstName + "-" + this.lastName;
+                
             }    
         }
 
